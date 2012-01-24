@@ -1,0 +1,2 @@
+v2.0, 2012/01/20 -- Refactoring to use gevent instead of asyncore
+

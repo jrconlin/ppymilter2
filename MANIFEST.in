@@ -1,0 +1,2 @@
+include AUTHORS CHANGES README INSTALL LICENCE Makefile
+recursive-include ppymilter2 *.py
