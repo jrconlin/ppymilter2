@@ -1,7 +1,9 @@
-PpyMilter
+PpyMilter2
 =========
+This is a minor tweak of PpyMilter that uses gevent instead of asyncore. 
+The speed boost is noticable.
+---
 
-$Id: README 21 2008-08-08 18:31:02Z codewhale $
 
 PpyMilter is a mail filtering API implementing the Sendmail milter protocol
 in pure Python.  It is the python equivalent of "Sendmail::PMilter".  This
