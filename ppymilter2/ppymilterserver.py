@@ -47,6 +47,7 @@ __author__ = 'Eric DeFriez'
 from gevent import monkey 
 monkey.patch_socket()
 from gevent.server import StreamServer
+from ppymilterbase import PpyMilterCloseConnection
 
 import binascii
 import logging
@@ -102,8 +103,10 @@ class PPYMilterHandler(object):
                         self._send(r)
                 elif response:
                     self._send(response)
+        except PpyMilterCloseConnection:
+            self.sockfile.close()
+            self.sockfile = None
         except Exception, e:
-            import pdb; pdb.set_trace();
             logging.error('Unhandled Exception %s' % repr(e))
         finally:
             if self.sockfile:
@@ -116,10 +119,10 @@ class PPYMilterServer(object):
 
     server = None
 
-    def __init__(self, listener, handler=ppymilterbase.PpyMilter):
+    def __init__(self, listener, handler=ppymilterbase.PpyMilter, **kw):
         milter_handler = PPYMilterHandler
         milter_handler.handler = handler
-        self.server = StreamServer(listener, milter_handler)
+        self.server = StreamServer(listener, milter_handler, **kw)
 
 
 # Allow running the library directly to demonstrate a simple example invocation.

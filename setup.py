@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# $Id: setup.py 22 2008-08-08 18:44:33Z codewhale $
+# $$
 # ==============================================================================
 # Copyright 2008 Google Inc.
 #
@@ -18,12 +18,12 @@
 
 from distutils.core import setup
 
-setup(name='ppymilter',
-      version='0.1',
-      description='Pure Python Milter Library',
+setup(name='ppymilter2',
+      version='2.0',
+      description='Pure Python Milter Library (modern)',
       author='Eric DeFriez',
       author_email='codewhale@gmail.com',
       url='http://code.google.com/p/ppymilter',
-      package_dir={'ppymilter': 'lib'},
-      packages=['ppymilter'],
-      scripts=['lib/ppymilterserver.py'])
+      package_dir={'ppymilter': 'ppymilter2'},
+      packages=['ppymilter2'],
+      )
